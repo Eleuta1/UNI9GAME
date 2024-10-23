@@ -44,13 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="stylesheet" href="../main.css">
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
     
     <?php if (isset($_GET['logout']) && $_GET['logout'] === 'success'): ?>
-        <p style="color: green;">Você saiu com sucesso!</p>
+        <p id="success-message" style="color: green;">Você saiu com sucesso!</p>
     <?php endif; ?>
 
         <?php if ($error): ?>
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" placeholder="Senha" name="password" required>
             <button type="submit">Entrar</button>
         </form>
-        <a href="#">Esqueceu sua senha?</a>
+        <a class="esqueceu" href="#">Esqueceu sua senha?</a>
     </div>
 </body>
 </html>
