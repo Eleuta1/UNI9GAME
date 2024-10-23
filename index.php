@@ -4,7 +4,7 @@ session_start();
 // Verifica se o usuário está logado, caso contrário, redireciona para a tela de login
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // Redireciona para a página de login com uma mensagem
-    header('Location: auth/login.php?error=not_logged_in'); // Passando um parâmetro de erro
+    header('Location: "/auth/login.php?error=not_logged_in"'); // Passando um parâmetro de erro
     exit;
 }
 ?>
