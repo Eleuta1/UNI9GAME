@@ -62,8 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" placeholder="Usuário" name="username" required>
             <input type="password" placeholder="Senha" name="password" required>
             <button type="submit">Entrar</button>
+            
         </form>
+        
         <a class="esqueceu" href="#">Esqueceu sua senha?</a>
+
+        <div class="cadastro-container">
+            <p>Nao tem uma conta? <a href="telacadastro.php">Cadastre-se aqui</a></p>
+        </div>
     </div>
 </body>
 </html>
