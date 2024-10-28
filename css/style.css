@@ -126,21 +126,20 @@ button:hover {
     font-size: 16px;
     font-weight: bold;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transition: top 0.5s ease, opacity 0.5s ease;
+    opacity: 0; /* Inicialmente invisível */
+    transition: top 0.5s ease, opacity 1s ease; /* Efeito de fade-in */
     z-index: 1000; /* Coloca a pop-up acima de outros elementos */
 }
 
-/* Exibe a pop-up com animação de slide */
+/* Exibe a pop-up com animação de slide e fade-in */
 .popup.show {
     top: 20px; /* A posição final da pop-up */
-    opacity: 1;
+    opacity: 1; /* Torna a pop-up visível */
 }
-
-/* Oculta a pop-up */
 .hidden {
     display: none;
 }
+
 
 .forgot-password {
     color: #6a11cb;

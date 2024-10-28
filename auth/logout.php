@@ -8,14 +8,13 @@ session_start();
 // Encerra a sessão
 session_destroy(); 
 
-// Redireciona para a tela de login
-// Após a destruição da sessão
+// Verifica se os cabeçalhos já foram enviados antes de tentar redirecionar
 if (!headers_sent()) {
     header('Location: login.php?logout=success');
-    exit;
-}
- else {
-    echo 'Redirecionamento falhou, cabeçalhos já enviados.'; // Mensagem de erro
+    exit; // Para garantir que nenhum código adicional seja executado
+} else {
+    // Se os cabeçalhos já foram enviados, informe ao usuário
+    echo 'Redirecionamento falhou, cabeçalhos já enviados.'; 
     exit; // Para garantir que o script não continue
 }
 ?>
