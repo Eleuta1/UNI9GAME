@@ -1,19 +1,19 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Receber os dados do formulário
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
 // Aqui você pode adicionar lógica para validar e armazenar os dados no banco de dados.
 // Exemplo de validação simples:
 if (filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($nome) && !empty($senha)) {
 
     // Conectar ao banco de dados (substitua os parâmetros com suas credenciais)
-$servername = "localhost";
-$username = "seu_usuario";
-$password = "sua_senha";
-$dbname = "seu_banco";
+    $servername = "localhost";
+    $username = "seu_usuario";
+    $password = "sua_senha";
+    $dbname = "seu_banco";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -41,7 +41,7 @@ $conn->close();
 }
 } else {
     echo "Método de requisição inválido.";
-}
+    }
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faça seu Cadastro</title>
-    <link rel="stylesheet" href=".../main.css"> <!-- Opcional: link para CSS -->
+    <link rel="stylesheet" href="../css/cad.css"> <!-- Opcional: link para CSS -->
 </head>
 <body>
     <div class="cadastro-container">
