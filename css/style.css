@@ -1,6 +1,7 @@
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Cor de fundo suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #061836);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,47 +9,75 @@ body {
     margin: 0;
 }
 
+/* Estrutura do layout */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 800px; /* Limita a largura total do layout */
+    margin: 0 auto;
+}
+
 .login-container {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 45px;
-    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 500px;
     text-align: center;
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #333;
+.image-container {
+    margin-left: 20px; /* Espaçamento entre o login e a imagem */
 }
 
+.image-container img {
+    max-width: 100%; /* A imagem se adapta ao tamanho do contêiner */
+    border-radius: 15px; /* Cantos arredondados para a imagem */
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Estilo dos campos de input */
 input[type="text"],
 input[type="password"] {
-    width: 75%;
-    padding: 10px;
+    width: 80%;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
+    transition: border 0.3s;
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #2575fc;
+    outline: none;
+}
+
+/* Botão de login */
 button {
-    background-color: rgb(5, 92, 92); /* Cor do botão */
+    background-color: #2575fc;
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 12px;
     cursor: pointer;
-    width: 80%;
+    width: 60%;
     font-size: 16px;
-    transition: transform 0.2s ease, background-color 0.2s ease; /* Transição suave */
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 button:hover {
-    background-color: cyan; /* Cor do botão ao passar o mouse */
-    transform: scale(1.05); /* Aumenta levemente o botão */
-    opacity: 0.9; /* Leve diminuição da opacidade */
+    background-color: #6a11cb;
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
+/* Mensagens de sucesso e erro */
 .success-message {
     color: green;
     margin: 10px 0;
@@ -59,20 +88,16 @@ button:hover {
     margin: 10px 0;
 }
 
+/* Links e interação */
 .forgot-password {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     text-decoration: none;
-    color: #007bff; /* Cor do link */
+    color: #2575fc;
 }
 
 .forgot-password:hover {
-    text-decoration: underline; /* Efeito de underline no hover */
-}
-
-.esqueceu{
-    font-size: 10px;
-    font-family: monospace;
+    text-decoration: underline;
 }
 
 .cadastro-container { 
@@ -81,24 +106,31 @@ button:hover {
 }
 
 .cadastro-container a {
-    color: #007bff;
+    color: #2575fc;
     text-decoration: none;
 }
 
 .cadastro-container a:hover {
     text-decoration: underline;
 }
-@media (max-width: 500px){
+
+/* Responsividade */
+@media (max-width: 500px) {
     .login-container {
-        padding: 15px;
+        padding: 20px;
+        width: 90%;
     }
 
-    button{
+    button {
         font-size: 14px;
     }
 
     input[type="text"],
-    input[type="password"]{
+    input[type="password"] {
         font-size: 14px;
+    }
+
+    .image-container {
+        display: none; /* Esconde a imagem em telas pequenas, se necessário */
     }
 }

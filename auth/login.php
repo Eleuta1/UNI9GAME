@@ -47,28 +47,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="../js/script.js" defer></script>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-    
-    <?php if (isset($_GET['logout']) && $_GET['logout'] === 'success'): ?>
-        <p id="success-message" style="color: green;">Você saiu com sucesso!</p>
-    <?php endif; ?>
+    <div class="login-wrapper">
+        <div class="image-container">
+           <!-- <img src="../img/login-bg.jpg" alt="Imagem Ilustrativa"> -->
+        </div>
+        <div class="login-container">
+            <h2>Bem-vindo de Volta!</h2>
 
-        <?php if ($error): ?>
-            <p style="color: red; text-align: center;"><?php echo $error; ?></p>
-        <?php endif; ?>
+            <?php if (isset($_GET['logout']) && $_GET['logout'] === 'success'): ?>
+                <p id="success-message" class="message success">Você saiu com sucesso!</p>
+            <?php endif; ?>
 
-        <form action="login.php" method="POST">
-            <input type="text" placeholder="Usuário" name="username" required>
-            <input type="password" placeholder="Senha" name="password" required>
-            <button type="submit">Entrar</button>
-            
-        </form>
-        
-        <a class="esqueceu" href="#">Esqueceu sua senha?</a>
+            <?php if ($error): ?>
+                <p class="message error"><?php echo $error; ?></p>
+            <?php endif; ?>
 
-        <div class="cadastro-container">
-            <p>Nao tem uma conta? <a href="telacadastro.php">Cadastre-se aqui</a></p>
+            <form action="login.php" method="POST">
+                <div class="input-container">
+                    <input type="text" name="username" placeholder="Usuario" required>
+                    
+                </div>
+                <div class="input-container">
+                    <input type="password" name="password" placeholder="Senha" required>
+                    
+                </div>
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+
+            <a class="esqueceu" href="#">Esqueceu sua senha?</a>
+
+            <div class="cadastro-container">
+                <p>Não tem uma conta? <a href="telacadastro.php">Cadastre-se aqui</a></p>
+            </div>
         </div>
     </div>
 </body>
