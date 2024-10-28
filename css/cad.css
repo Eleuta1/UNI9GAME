@@ -1,83 +1,157 @@
+/* Estilo tela cadastro */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Cor de fundo suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
+@keyframes slide-in {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Estrutura do layout */
+.login-wrapper {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
-.cadastro-container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 45px;
-    width: 300px;
+.welcome-container {
+    background-color: #6a11cb;
+    color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
     text-align: center;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
+.welcome-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
+.welcome-container p {
+    margin-bottom: 20px;
+}
+
+.register-btn {
+    background: white;
+    color: #6a11cb;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #4e0e9d;
+    color: white;
+}
+
+.login-container {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slide-in 0.6s ease;
+}
+
+.login-container h2 {
+    font-size: 24px;
     color: #333;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 75%;
-    padding: 10px;
+    width: 100%;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
-input[type="submit"] {
-    background-color: rgb(5, 92, 92); /* Cor do botão */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6a11cb;
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: pointer;
-    width: 80%;
+    border-radius: 8px;
     font-size: 16px;
-    transition: transform 0.2s ease, background-color 0.2s ease; /* Transição suave */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-input[type="submit"]:hover {
-    background-color: cyan; /* Cor do botão ao passar o mouse */
-    transform: scale(1.05); /* Aumenta levemente o botão */
-    opacity: 0.9; /* Leve diminuição da opacidade */
+button:hover {
+    background-color: #4e0e9d;
+    transform: scale(1.05);
 }
 
-.success-message {
-    color: green;
-    margin: 10px 0;
+.forgot-password {
+    color: #6a11cb;
+    text-decoration: none;
+    margin: 15px 0;
 }
 
-.error-message {
-    color: red;
-    margin: 10px 0;
+.social-icons {
+    display: flex;
+    gap: 15px;
 }
 
-@media (max-width: 500px) {
-    .cadastro-container {
-        padding: 15px;
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .login-wrapper {
+        flex-direction: column;
+        max-width: 90%;
     }
 
-    input[type="submit"] {
-        font-size: 14px;
+    .welcome-container {
+        padding: 20px;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 14px;
+    .login-container {
+        padding: 20px;
+    }
+
+    .social-icons a img {
+        width: 25px;
+        height: 25px;
     }
 }

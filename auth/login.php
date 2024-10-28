@@ -44,42 +44,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="stylesheet" href="../main.css">
-    <script src="../js/script.js" defer></script>
+
 </head>
 <body>
     <div class="login-wrapper">
-        <div class="image-container">
-           <!-- <img src="../img/login-bg.jpg" alt="Imagem Ilustrativa"> -->
+        <!-- Seção de boas-vindas -->
+        <div class="welcome-container">
+            <h2>Olá, Bem vindo de Volta!</h2>
+            <p>Ainda não tem conta?</p>
+            <a href="telacadastro.php" class="register-btn">Registre-se</a>
         </div>
+        
+        <!-- Seção de login -->
         <div class="login-container">
-            <h2>Bem-vindo de Volta!</h2>
-
-            <?php if (isset($_GET['logout']) && $_GET['logout'] === 'success'): ?>
-                <p id="success-message" class="message success">Você saiu com sucesso!</p>
-            <?php endif; ?>
-
-            <?php if ($error): ?>
-                <p class="message error"><?php echo $error; ?></p>
+            <h2>Login</h2>
+            
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'not_logged_in'): ?>
+                <p class="error-message">Você precisa estar logado para acessar essa página.</p>
             <?php endif; ?>
 
             <form action="login.php" method="POST">
-                <div class="input-container">
-                    <input type="text" name="username" placeholder="Usuario" required>
-                    
-                </div>
-                <div class="input-container">
-                    <input type="password" name="password" placeholder="Senha" required>
-                    
-                </div>
-                <button type="submit" class="login-button">Entrar</button>
+                <input type="text" name="username" placeholder="Usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit">Login</button>
             </form>
 
-            <a class="esqueceu" href="#">Esqueceu sua senha?</a>
+            <a class="forgot-password" href="#">Forgot password?</a>
 
-            <div class="cadastro-container">
-                <p>Não tem uma conta? <a href="telacadastro.php">Cadastre-se aqui</a></p>
+            <p>or login with social platforms</p>
+            <div class="social-icons">
+                <a href="#"><img src="../favicon/google-icon.png" alt="Google"></a>
+                <a href="#"><img src="../favicon/facebook-icon.png" alt="Facebook"></a>
+                
+            </div>
+            <div id="logout-popup" class="popup hidden">
+                <p>Deslogado com sucesso!</P>
             </div>
         </div>
     </div>
+    <script src="../js/logout-popup.js"></script>
 </body>
 </html>
+

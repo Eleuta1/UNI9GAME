@@ -1,7 +1,7 @@
-
+/* Estilo geral */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #061836);
+    background: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,128 +9,177 @@ body {
     margin: 0;
 }
 
+@keyframes slide-in {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 /* Estrutura do layout */
 .login-wrapper {
     display: flex;
-    align-items: center;
-    max-width: 800px; /* Limita a largura total do layout */
-    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.login-container {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.welcome-container {
+    background-color: #6a11cb;
+    color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 40px;
-    width: 500px;
     text-align: center;
 }
 
-.image-container {
-    margin-left: 20px; /* Espaçamento entre o login e a imagem */
-}
-
-.image-container img {
-    max-width: 100%; /* A imagem se adapta ao tamanho do contêiner */
-    border-radius: 15px; /* Cantos arredondados para a imagem */
-}
-
-h2 {
-    margin-bottom: 25px;
-    color: #333;
+.welcome-container h2 {
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
-/* Estilo dos campos de input */
-input[type="text"],
-input[type="password"] {
-    width: 80%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border 0.3s;
+.welcome-container p {
+    margin-bottom: 20px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #2575fc;
-    outline: none;
+.register-btn {
+    background: white;
+    color: #6a11cb;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-/* Botão de login */
-button {
-    background-color: #2575fc;
+.register-btn:hover {
+    background-color: #4e0e9d;
     color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    cursor: pointer;
-    width: 60%;
-    font-size: 16px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-button:hover {
-    background-color: #6a11cb;
-    transform: scale(1.05);
-    opacity: 0.9;
+.login-container {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slide-in 0.6s ease;
 }
 
-/* Mensagens de sucesso e erro */
-.success-message {
-    color: green;
-    margin: 10px 0;
+.login-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .error-message {
     color: red;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
     margin: 10px 0;
-}
-
-/* Links e interação */
-.forgot-password {
-    display: block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #2575fc;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
-}
-
-.cadastro-container { 
-    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     font-size: 14px;
 }
 
-.cadastro-container a {
-    color: #2575fc;
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #4e0e9d;
+    transform: scale(1.05);
+}
+/* Estilos da pop-up de deslogado */
+.popup {
+    position: fixed;
+    top: -100px; /* Começa fora da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6a11cb;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: top 0.5s ease, opacity 0.5s ease;
+    z-index: 1000; /* Coloca a pop-up acima de outros elementos */
+}
+
+/* Exibe a pop-up com animação de slide */
+.popup.show {
+    top: 20px; /* A posição final da pop-up */
+    opacity: 1;
+}
+
+/* Oculta a pop-up */
+.hidden {
+    display: none;
+}
+
+.forgot-password {
+    color: #6a11cb;
     text-decoration: none;
+    margin: 15px 0;
 }
 
-.cadastro-container a:hover {
-    text-decoration: underline;
+.social-icons {
+    display: flex;
+    gap: 15px;
 }
 
-/* Responsividade */
-@media (max-width: 500px) {
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .login-wrapper {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .welcome-container {
+        padding: 20px;
+    }
+
     .login-container {
         padding: 20px;
-        width: 90%;
     }
 
-    button {
-        font-size: 14px;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-        font-size: 14px;
-    }
-
-    .image-container {
-        display: none; /* Esconde a imagem em telas pequenas, se necessário */
+    .social-icons a img {
+        width: 25px;
+        height: 25px;
     }
 }
