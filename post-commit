@@ -1,2 +1,2 @@
 #!/bin/sh
-php /caminho/para/seu/script/trigger-build.php
+php UNI9GAME/build/trigger-build.php
