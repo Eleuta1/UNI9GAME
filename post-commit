@@ -1,0 +1,2 @@
+#!/bin/sh
+php /caminho/para/seu/script/trigger-build.php
